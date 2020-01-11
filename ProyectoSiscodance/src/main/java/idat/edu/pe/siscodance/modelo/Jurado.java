@@ -8,38 +8,65 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="jurado")
+
+@XmlRootElement
+@NamedQueries({ @NamedQuery(name = "Jurado.findAll", query = "SELECT t FROM Jurado t"),
+		@NamedQuery(name = "Jurado.findByIdJurado", query = "SELECT t FROM Jurado t WHERE t.idjurado = :idjurado"),
+		@NamedQuery(name = "Jurado.findByNombre", query = "SELECT t FROM Jurado t WHERE t.nomjurado = :nomjurado"),
+		@NamedQuery(name = "Jurado.findByApePaterno", query = "SELECT t FROM Jurado t WHERE t.apepatjurado = :apepatjurado"),
+		@NamedQuery(name = "Jurado.findByApeMaterno", query = "SELECT t FROM Jurado t WHERE t.apematjurado = :apematjurado"),
+		@NamedQuery(name = "Jurado.findBydnijurado", query = "SELECT t FROM Jurado t WHERE t.dnijurado = :dnijurado"),
+		@NamedQuery(name = "Jurado.findBytelefono", query = "SELECT t FROM Jurado t WHERE t.telefono = :telefono"),
+		@NamedQuery(name = "Jurado.findByNombreUsuario", query = "SELECT t FROM Jurado t WHERE t.nombreusuario = :nombreusuario") })
+
 public class Jurado implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "idtutor")
-	private Integer idtutor;
+	@Column(name = "idjurado")
+	private Integer idjurado;
 	@Column(name = "nomjurado")
 	private String nomjurado;
-	@Column(name = "apepjurado")
-	private String apepjurado;
-	@Column(name = "apemjurado")
-	private String apemjurado;
-	@Column(name = "dnijuado")
+	@Column(name = "apepatjurado")
+	private String apepatjurado;
+	@Column(name = "apematjurado")
+	private String apematjurado;
+	@Column(name = "dnijurado")
 	private String dnijurado;
 	@Column(name = "telefono")
 	private String telefono;
-	@Column(name = "cargo")
-	private String cargo;
 	@Column(name = "nombreusuario")
 	private String nombreusuario;
-	@Column(name = "contraseña")
-	private String contraseña;
-	public Integer getIdtutor() {
-		return idtutor;
+	
+	public Jurado() {
 	}
-	public void setIdtutor(Integer idtutor) {
-		this.idtutor = idtutor;
+
+	public Jurado(Integer idjurado, String nomjurado, String apepatjurado, String apematjurado, String dnijurado,
+			String telefono, String nombreusuario) {
+		super();
+		this.idjurado = idjurado;
+		this.nomjurado = nomjurado;
+		this.apepatjurado = apepatjurado;
+		this.apematjurado = apematjurado;
+		this.dnijurado = dnijurado;
+		this.telefono = telefono;
+		this.nombreusuario = nombreusuario;
+	}
+	
+	public Integer getIdjurado() {
+		return idjurado;
+	}
+	public void setIdjurado(Integer idjurado) {
+		this.idjurado = idjurado;
 	}
 	public String getNomjurado() {
 		return nomjurado;
@@ -47,17 +74,17 @@ public class Jurado implements Serializable {
 	public void setNomjurado(String nomjurado) {
 		this.nomjurado = nomjurado;
 	}
-	public String getApepjurado() {
-		return apepjurado;
+	public String getApepatjurado() {
+		return apepatjurado;
 	}
-	public void setApepjurado(String apepjurado) {
-		this.apepjurado = apepjurado;
+	public void setApepatjurado(String apepjurado) {
+		this.apepatjurado = apepjurado;
 	}
-	public String getApemjurado() {
-		return apemjurado;
+	public String getApematjurado() {
+		return apematjurado;
 	}
-	public void setApemjurado(String apemjurado) {
-		this.apemjurado = apemjurado;
+	public void setApematjurado(String apemjurado) {
+		this.apematjurado = apemjurado;
 	}
 	public String getDnijurado() {
 		return dnijurado;
@@ -71,33 +98,17 @@ public class Jurado implements Serializable {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public String getCargo() {
-		return cargo;
-	}
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
 	public String getNombreusuario() {
 		return nombreusuario;
 	}
 	public void setNombreusuario(String nombreusuario) {
 		this.nombreusuario = nombreusuario;
 	}
-	public String getContraseña() {
-		return contraseña;
-	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
 	@Override
 	public String toString() {
-		return "Jurado [idtutor=" + idtutor + ", nomjurado=" + nomjurado + ", apepjurado=" + apepjurado
-				+ ", apemjurado=" + apemjurado + ", dnijurado=" + dnijurado + ", telefono=" + telefono + ", cargo="
-				+ cargo + ", nombreusuario=" + nombreusuario + ", contraseña=" + contraseña + "]";
+		return "Jurado [idjurado=" + idjurado + ", nomjurado=" + nomjurado + ", apepatjurado=" + apepatjurado
+				+ ", apematjurado=" + apematjurado + ", dnijurado=" + dnijurado + ", telefono=" + telefono
+				+ ", nombreusuario=" + nombreusuario + "]";
 	}
 	
-	
-	
-	
-
 }

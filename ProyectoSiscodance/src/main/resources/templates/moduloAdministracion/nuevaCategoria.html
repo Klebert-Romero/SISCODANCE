@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../..css1/style.css"  th:href="@{/css1/style.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Nuevo Nivel</title>
+</head>
+<body>
+	<nav>
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+			
+			<li><a href="#">ADMINISTRACION</a></li>
+			<li><a href="#">EVALUACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+	<section>
+		<p>Ingrese datos de la nueva categoria</p>
+		<div class="container">
+			<form th:action="@{/categorias/guardar}" th:object="${categoria}"
+				class="was-validated" method="post">
+				<div class="invalid-feedback">*</div>
+				<input type="text" class="form-control" id="nombrecate"
+					placeholder="Ingrese Nombre" th:field="*{nombrecate}" name="uname"
+					required>
+					
+					<input type="text" class="form-control" id="descripcion"
+					placeholder="Ingrese Descripción" th:field="*{descripcion}" name="uname"
+					required>
+					
+					
+				<div class="valid-feedback"></div>
+				
+				<br>
+				<button type="submit" class="btn btn-success">Guardar</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>
