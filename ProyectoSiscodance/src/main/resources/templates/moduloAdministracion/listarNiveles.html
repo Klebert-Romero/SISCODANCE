@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../..css1/style.css"  th:href="@{/css1/style.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Niveles</title>
+</head>
+<body>
+	<nav>
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+			<!-- <a class="dropdown-item" th:href="@{/niveles/listarNiveles}">NIVEL</a></li> --><li>
+			<li><a href="#">ADMINISTRACION</a></li>
+			<li><a href="#">EVALUACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+	<div class="container" align="center">
+		<a th:href="@{/niveles/nuevo}">Crear Nuevo Nivel</a>
+	</div>
+	<br>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nombres</th>
+					<th>Estado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="nivel : ${listaNiveles}">
+					<td th:text="${nivel.nomnivel}">Nombres</td>
+					<td><a
+						th:href="@{/niveles/actualizar/{id}(id=${nivel.idnivel})}">Actualizar</a>
+						&nbsp;&nbsp;&nbsp; <a
+						th:href="@{/niveles/eliminar/{id}(id=${nivel.idnivel})}">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

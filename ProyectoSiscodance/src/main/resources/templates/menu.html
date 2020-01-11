@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css1/style.css" rel="stylesheet" type="text/css" />
+<title>Menu Principal</title>
+</head>
+
+<body id="menu">
+	<nav>
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+			<li><a class=""
+				th:href="@{/menu/administracion/}">ADMINISTRACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+			<li><a href="#">EVALUACION</a></li>
+			
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+	<div></div>
+
+</body>
+
+
+
+<!--  
+<body id="menu">
+	<nav>
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+			<li><a class="dropdown-item"
+				th:href="@{/tutores/listarTodo}">listando TUTOR</a></li>
+			<li><a class="dropdown-item"
+				th:href="@{/niveles/listarNiveles}">NIVEL*</a></li>
+			<li><a class="dropdown-item"
+				th:href="@{/grados/listarGrados}">GRADO*</a></li>
+			<li><a href="#">JURADO</a></li>
+			<li><a href="#">EVALUACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+	<div></div>
+
+</body>-->
+</html>

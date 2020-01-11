@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../..css1/style.css"  th:href="@{/css1/style.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Editar Nivel</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-light">
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+		<!-- <li><a class="" th:href="@{/niveles/listarNiveles}">NIVEL</a></li> -->	
+			<li><a href="#">ADMINISTRACION</a></li>
+			<li><a href="#">EVALUACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+
+	<section id="seccion1">
+		<p>Ingrese datos del nuevo Nivel</p>
+		<form th:action="@{/niveles/guardar}" th:object="${nivel}"
+			method="post">
+
+			<div class="form-group row">
+				<label for="idnivel" class="col-sm-2 col-form-label">ID
+					Nivel:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="idnivel"
+						th:field="*{idnivel}" readonly="readonly" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="nomnivel" class="col-sm-2 col-form-label">Nombre:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="nomnivel"
+						placeholder="Nombre Nivel" th:field="*{nomnivel}" />
+				</div>
+			</div>
+
+			<div align="center">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+
+		</form>
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css1/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Editar Grado</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light">
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+			<li><a class="dropdown-item" th:href="@{/grados/listarGrados}">GRADO</a></li>
+			<li><a href="#">JURADO</a></li>
+			<li><a href="#">EVALUACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+
+	<section id="seccion1">
+		<p>Ingrese datos del Grado</p>
+		<form th:action="@{/grados/guardar}" th:object="${grado}"
+			method="post">
+
+			<div class="form-group row">
+				<label for="idgrado" class="col-sm-2 col-form-label">ID
+					Grado:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="idgrado"
+						th:field="*{idgrado}" readonly="readonly" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="nombregrado" class="col-sm-2 col-form-label">Nombre:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="nombregrado"
+						placeholder="Nombre Grado" th:field="*{nombregrado}" required />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="turno" class="col-sm-2 col-form-label">Turno:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="turno"
+						placeholder="Nombre Turno" th:field="*{turno}" required />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="nivel" class="col-sm-2 col-form-label">Nivel:</label>
+				<div class="col-sm-10">
+					<select th:field="*{nivel}" class="form-control" id="nivel">
+						<option class="form-control" th:each="nivel : ${nivel}"
+							th:value="${nivel.idnivel}" th:utext="${nivel.nomnivel}" >
+						</option>
+					</select>
+				</div>
+			</div>
+
+			<div align="center">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+
+		</form>
+
+	</section>
+
+</body>
+</html>
