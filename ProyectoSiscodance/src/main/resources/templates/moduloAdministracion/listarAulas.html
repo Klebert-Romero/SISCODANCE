@@ -3,8 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<link rel="stylesheet" href="../..css1/style.css"  th:href="@{/css1/style.css}">
+<link href="../css1/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <script
@@ -13,39 +12,44 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<title>Niveles</title>
+<title>Grados</title>
 </head>
 <body>
 	<nav>
 		<label class="logo">SISCODANCE</label>
 		<ul>
 			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
-			<!-- <a class="dropdown-item" th:href="@{/niveles/listarNiveles}">NIVEL</a></li> --><li>
-			<li><a href="#">ADMINISTRACION</a></li>
+			<li><a class="dropdown-item" th:href="@{/aulas/listarAulas}">AULAS</a></li>
+			<li><a href="#">JURADO</a></li>
 			<li><a href="#">EVALUACION</a></li>
 			<li><a href="#">INSCRIPCION</a></li>
 		</ul>
 		<label id="icon"><i class="fas fa-bars"></i></label>
 	</nav>
 	<div class="container" align="center">
-		<a th:href="@{/niveles/nuevo}">Crear Nuevo Nivel</a>
+		<a th:href="@{/aulas/nuevo}">Crear Nuevo Sección</a>
 	</div>
 	<br>
 	<div class="container">
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Nombres</th>
-					<th>Estado</th>
+					<th>Sección</th>
+					<th>Grado</th>
+					<th>Nivel</th>
+					<th>Tutor a Cargo</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="nivel : ${listaNiveles}">
-					<td th:text="${nivel.nomnivel}">Nombres</td>
+				<tr th:each="aula : ${listaAulas}">
+					<td th:text="${aula.seccion}">Sección</td>
+					<td th:text="${aula.idgrado.nombregrado}">Grado</td>
+					<td th:text="${aula.idgrado.nivel.nomnivel}">Nivel</td>
+					<td th:text="${aula.idtutor.nomtutor}">Tutor</td>
 					<td><a
-						th:href="@{/niveles/actualizar/{id}(id=${nivel.idnivel})}">Actualizar</a>
+						th:href="@{/aulas/actualizar/{id}(id=${aula.idaula})}">Actualizar</a>
 						&nbsp;&nbsp;&nbsp; <a
-						th:href="@{/niveles/eliminar/{id}(id=${nivel.idnivel})}">Eliminar</a></td>
+						th:href="@{/aulas/eliminar/{id}(id=${aula.idaula})}">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>

@@ -33,7 +33,6 @@ public class GradoWebController {
 	public String nuevoGrado(Model model) {
 		Grado grado = new Grado();
 		List<Nivel> niveles = servicio.listarNiveles();
-		
 		model.addAttribute("grado", grado);
 		model.addAttribute("nivel", niveles);
 		return "/moduloAdministracion/nuevoGrado";

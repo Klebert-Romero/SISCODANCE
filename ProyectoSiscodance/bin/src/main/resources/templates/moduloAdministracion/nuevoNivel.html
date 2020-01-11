@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css1/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../..css1/style.css"  th:href="@{/css1/style.css}">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <script
@@ -19,8 +19,8 @@
 		<label class="logo">SISCODANCE</label>
 		<ul>
 			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
-			<li><a class="dropdown-item" th:href="@{/niveles/listarNiveles}">NIVEL</a></li>
-			<li><a href="#">JURADO</a></li>
+			<li><a class="" th:href="@{/niveles/listarNiveles}">NIVEL</a></li>
+			<li><a href="#">ADMINISTRACION</a></li>
 			<li><a href="#">EVALUACION</a></li>
 			<li><a href="#">INSCRIPCION</a></li>
 		</ul>

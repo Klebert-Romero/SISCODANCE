@@ -33,8 +33,7 @@ public class Jurado implements Serializable {
 	private String cargo;
 	@Column(name = "nombreusuario")
 	private String nombreusuario;
-	@Column(name = "contraseña")
-	private String contraseña;
+	
 	public Integer getIdtutor() {
 		return idtutor;
 	}
@@ -83,21 +82,19 @@ public class Jurado implements Serializable {
 	public void setNombreusuario(String nombreusuario) {
 		this.nombreusuario = nombreusuario;
 	}
-	public String getContraseña() {
-		return contraseña;
-	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
 	@Override
 	public String toString() {
 		return "Jurado [idtutor=" + idtutor + ", nomjurado=" + nomjurado + ", apepjurado=" + apepjurado
 				+ ", apemjurado=" + apemjurado + ", dnijurado=" + dnijurado + ", telefono=" + telefono + ", cargo="
-				+ cargo + ", nombreusuario=" + nombreusuario + ", contraseña=" + contraseña + "]";
+				+ cargo + ", nombreusuario=" + nombreusuario + "]";
+	}
+	
+	
+
 	}
 	
 	
 	
 	
 
-}
+

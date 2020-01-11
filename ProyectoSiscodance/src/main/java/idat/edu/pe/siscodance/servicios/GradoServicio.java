@@ -12,7 +12,6 @@ import idat.edu.pe.siscodance.repositorios.GradoRepositorio;
 
 @Service
 @Transactional
-
 public class GradoServicio {
 	@Autowired
 	private GradoRepositorio repositorio;
