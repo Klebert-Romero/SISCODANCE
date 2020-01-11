@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css1/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Editar Jurado</title>
+</head>
+<body>
+
+	<nav>
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+			<li><a href="#">ADMINISTRACIÓN</a></li>
+			<!-- <li><a class="dropdown-item" th:href="@{/jurados/listarTodo}">TUTOR</a></li> -->
+			<li><a href="#">EVALUACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+
+	<section id="seccion1">
+		<p>Datos del Jurado</p>
+		<form th:action="@{/jurados/guardar}" th:object="${jurado}"
+			method="post">
+
+			<div class="form-group row">
+				<label for="id" class="col-sm-2 col-form-label">ID Jurado:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="id"
+						th:field="*{idjurado}" readonly="readonly" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="nomjurado"
+						placeholder="Nombre del Jurado(a)" th:field="*{nomjurado}" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="duracion" class="col-sm-2 col-form-label">Apellido
+					Paterno:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="apepatjurado"
+						placeholder="Apellido Paterno" th:field="*{apepatjurado}" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="duracion" class="col-sm-2 col-form-label">Apellido
+					Materno:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="apematjurado"
+						placeholder="Apellido Materno" th:field="*{apematjurado}" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="clasificacion" class="col-sm-2 col-form-label">DNI:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="dnijurado"
+						placeholder="Ingrese DNI" th:field="*{dnijurado}" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="idioma" class="col-sm-2 col-form-label">Teléfono:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="telefono"
+						placeholder="Ingrese Telefono" th:field="*{telefono}" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="usuario" class="col-sm-2 col-form-label">Usuario:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="nombreusuario"
+						th:field="*{nombreusuario}" readonly="readonly" />
+				</div>
+			</div>
+
+
+			<div align="center">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+
+		</form>
+	</section>
+</body>
+
+</html>

@@ -36,7 +36,7 @@ public class TutorServicio {
 		tutorActual.setTelefonotut(tutorActualizar.getTelefonotut());
 		tutorActual.setCorreotut(tutorActualizar.getCorreotut());
 		//Ojo
-		tutorActual.setNombreusuario(tutorActual.getNombreusuario());
+		tutorActual.setNombreusuario(tutorActualizar.getNombreusuario());
 		
 		Tutor tutorActualizado = repositorio.save(tutorActual);
 		return tutorActualizado;

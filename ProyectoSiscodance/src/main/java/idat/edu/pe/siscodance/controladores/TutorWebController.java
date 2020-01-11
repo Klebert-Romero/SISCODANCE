@@ -23,11 +23,11 @@ public class TutorWebController {
 	@Autowired
 	private TutorServicio servicio;
 	
-	@RequestMapping("/listarTodo")
+	@RequestMapping("/listarTutor")
 	public String listarTutores(Model model) {
 		List <Tutor> listaTutores = servicio.buscarTodo();
 		model.addAttribute("listaTutores", listaTutores);
-		return "/moduloAdministracion/listarTodo";
+		return "/moduloAdministracion/listarTutor";
 		
 	}
 	@RequestMapping("/nuevo")
@@ -40,7 +40,7 @@ public class TutorWebController {
 	@RequestMapping(value = "/guardar", method = RequestMethod.POST)
 	public String crearTutor(@ModelAttribute("tutor") Tutor tutor) {
 		servicio.crear(tutor);
-	    return "redirect:/tutores/listarTodo";
+	    return "redirect:/tutores/listarTutor";
 	}
 	
 	@RequestMapping("/actualizar/{id}")
@@ -53,7 +53,7 @@ public class TutorWebController {
 	@RequestMapping("/eliminar/{id}")
 	public String eliminarTutor(@PathVariable(name = "id") int id) {
 		servicio.borrarPorID(id);;
-	    return "redirect:/tutores/listarTodo";       
+	    return "redirect:/tutores/listarTutor";       
 	}
 
 }

@@ -8,9 +8,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name="categoria")
+
+@XmlRootElement
+@NamedQueries({ @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c"),
+		@NamedQuery(name = "Categoria.findByIdCategoria", query = "SELECT c FROM Categoria c WHERE c.idcategoria = :idcategoria"),
+		@NamedQuery(name = "Categoria.findByNombre", query = "SELECT c FROM Categoria c WHERE c.nombrecate = :nombrecate"),
+		@NamedQuery(name = "Categoria.findByDescripcion", query = "SELECT c FROM Categoria c WHERE c.descripcion = :descripcion"),
+		 })
+
+
 public class Categoria implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -24,6 +36,21 @@ public class Categoria implements Serializable{
 	@Column(name = "descripcion")
 	private String descripcion;
 	
+	public Categoria() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Categoria(Integer idcategoria, String nombrecate, String descripcion) {
+		super();
+		this.idcategoria = idcategoria;
+		this.nombrecate = nombrecate;
+		this.descripcion = descripcion;
+	}
+
+
+
+
 	public Integer getIdcategoria() {
 		return idcategoria;
 	}

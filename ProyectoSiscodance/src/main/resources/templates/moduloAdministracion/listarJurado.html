@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css1/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Jurados</title>
+<script>
+	$(document).ready(function() {
+		$('#ejemplo1').DataTable({
+			language : {
+				"decimal" : "",
+				"emptyTable" : "Datos no disponibles en la tabla",
+				"info" : "Mostrando _START_ a _END_ de _TOTAL_ registros",
+				"infoEmpty" : "Mostrando 0 a 0 de 0 registros",
+				"infoFiltered" : "(Filtrado de _MAX_ registros totales)",
+				"infoPostFix" : "",
+				"thousands" : ",",
+				"lengthMenu" : "Mostrando _MENU_ registros",
+				"loadingRecords" : "Cargando...",
+				"processing" : "Procesando...",
+				"search" : "Buscar:",
+				"zeroRecords" : "No se encontraron registros para la búsqueda",
+				"paginate" : {
+					"first" : "Primero",
+					"last" : "Ultimo",
+					"next" : "Siguiente",
+					"previous" : "Anterior"
+				},
+				"aria" : {
+					"sortAscending" : ": Activar para ordenar ascendente",
+					"sortDescending" : ": Activar para ordenar descendente"
+				}
+			}
+		});
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
+</head>
+<body>
+	<nav>
+		<label class="logo">SISCODANCE</label>
+		<ul>
+			<li><a class="active" th:href="@{/menu}">INICIO</a></li>
+		<!-- 	<li><a class="dropdown-item" th:href="@{/jurados/listarTodo}">TUTOR</a></li>  -->
+			<li><a href="#">ADMINISTRACIÓN</a></li>
+			<li><a href="#">EVALUACION</a></li>
+			<li><a href="#">INSCRIPCION</a></li>
+		</ul>
+		<label id="icon"><i class="fas fa-bars"></i></label>
+	</nav>
+
+	<section id="seccion1">
+		<div>
+			<div class="container" align="center">
+				<a th:href="@{/jurados/nuevo}">Crear Nuevo <b>Jurado</b></a>
+			</div>
+			<br>
+			<div class="container">
+				<table
+					class="table table-striped table-bordered dt-responsive nowrap"
+					style="width: 100%">
+					<thead>
+						<tr>
+							<th>Nombres</th>
+							<th>Apellido Paterno</th>
+							<th>Apellido Materno</th>
+							<th>Dni</th>
+							<th>Telefono</th>
+							<th>Usuario</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="jurado : ${listaJurados}">
+							<td th:text="${jurado.nomjurado}">Nombres</td>
+							<td th:text="${jurado.apepatjurado}">Apellido Paterno</td>
+							<td th:text="${jurado.apematjurado}">Apellido Materno</td>
+							<td th:text="${jurado.dnijurado}">Dni</td>
+							<td th:text="${jurado.telefono}">Telefono</td>
+							<td th:text="${jurado.nombreusuario}">Usuario</td>
+							<td><a
+								th:href="@{/jurados/actualizar/{id}(id=${jurado.idjurado})}">Actualizar</a>
+								&nbsp;&nbsp;&nbsp; <a
+								th:href="@{/jurados/eliminar/{id}(id=${jurado.idjurado})}">Eliminar</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>
